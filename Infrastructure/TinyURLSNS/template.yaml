@@ -1,0 +1,42 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  TinyURLSNS will pull a long pre-signed URL from Dynamo and redirect the user to that
+  end point so it can be sent using SMS and stay within the limts of that message 
+
+Globals:
+  Function:
+    Timeout: 10
+Resources:
+  ApiGatewayApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: prod
+      Domain:
+        DomainName: "fightdetected.calpoly.io"
+        CertificateArn: arn:aws:acm:us-east-1:ACCOUNTNUMBER:certificate/
+        EndpointConfiguration: EDGE
+  TinyURLFunction: # Adds a GET api endpoint at "/" to the ApiGatewayApi via an Api event
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: tinyurl/
+      Handler: app.lambda_handler
+      Runtime: python3.9
+      Architectures:
+        - x86_64
+      Policies:
+        - AmazonDynamoDBFullAccess
+      Events:
+        TinyURLApiEvent:
+          Type: Api
+          Properties:
+            Path: /tinyurl
+            Method: get
+            RestApiId:
+              Ref: ApiGatewayApi
+  
+  
+Outputs:
+  TinyURLApi:
+    Description: "API Gateway endpoint URL for Prod stage for TinyURL"
+    Value: !Sub "https://${ApiGatewayApi}/"

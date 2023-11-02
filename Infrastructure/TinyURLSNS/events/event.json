@@ -1,0 +1,66 @@
+{
+  "resource": "/tinyurl",
+  "path": "/tinyurl",
+  "httpMethod": "GET",
+  "headers": "None",
+  "multiValueHeaders": "None",
+  "queryStringParameters":
+  {
+      "school": "kraker",
+      "ip": "192.168.1.100",
+      "cam": "cam2"
+  },
+  "multiValueQueryStringParameters":
+  {
+      "school":
+      [
+          "kraker"
+      ],
+      "ip":
+      [
+          "192.168.1.100"
+      ],
+      "cam":
+      [
+          "cam0"
+      ]
+  },
+  "pathParameters": "None",
+  "stageVariables": "None`",
+  "requestContext":
+  {
+      "resourceId": "4dqw38",
+      "resourcePath": "/tinyurl",
+      "httpMethod": "GET",
+      "extendedRequestId": "E1BzYEJzPHcFk7w=",
+      "requestTime": "12/May/2023:21:31:01 +0000",
+      "path": "/tinyurl",
+      "accountId": "",
+      "protocol": "HTTP/1.1",
+      "stage": "test-invoke-stage",
+      "domainPrefix": "testPrefix",
+      "requestTimeEpoch": 1683927061345,
+      "requestId": "7de27112-f4bc-44d5-8aad-22f3c8787b81",
+      "identity":
+      {
+          "cognitoIdentityPoolId": "None",
+          "cognitoIdentityId": "None",
+          "apiKey": "test-invoke-api-key",
+          "principalOrgId": "None",
+          "cognitoAuthenticationType": "None",
+          "userArn": "arn:aws:sts::ACCOUNTNUMBER:assumed-role/OrganizationAccountAccessRole/dkraker",
+          "apiKeyId": "test-invoke-api-key-id",
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:102.0) Gecko/20100101 Firefox/102.0",
+          "accountId": "",
+          "caller": "",
+          "sourceIp": "test-invoke-source-ip",
+          "accessKey": "",
+          "cognitoAuthenticationProvider": "None",
+          "user": ""
+      },
+      "domainName": "testPrefix.testDomainName",
+      "apiId": "jowf0syu65"
+  },
+  "body": "None",
+  "isBase64Encoded": "False"
+}
